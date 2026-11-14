@@ -1,7 +1,5 @@
 # Girl Agent Love
 
-[中文](README.md) · **English**
-
 Girl Agent Love is a framework that uses Ren'Py as the engine and lets AI write the story in real time. You can use it to build a galgame of your own.
 
 **Current version: 1.0-b**
@@ -26,7 +24,6 @@ Girl Agent Love is a framework that uses Ren'Py as the engine and lets AI write 
 .
 ├── options.txt
 ├── README.md
-├── README-us.md
 ├── LICENSE / NOTICE / THIRD_PARTY_NOTICES.md
 ├── start-game.bat / lint.bat
 ├── game/
@@ -62,9 +59,9 @@ Common frontmatter fields:
 ```yaml
 ---
 id: aya
-name: 绫
+name: aya
 gender: female
-aliases: \\[丛雨, 小雨，幼刀，丛雨大人]
+aliases: \\[murasame, murasame sama]
 lead: true
 romance: true
 affection: 0
@@ -73,14 +70,14 @@ voice\\_name: Serena
 ```
 
 1. `lead` marks the heroine, `romance` decides whether affection is tracked, and `affection` is the starting value.
-2. If a character has a special way of addressing someone, put it in that speaker's own card. For example, *朝武芳乃* calls *丛雨* 「丛雨大人」, so you write it in their `## Character details` section like this:
+2. If a character has a special way of addressing someone, put it in that speaker's own card. For example, *Tomotake Yoshino* calls *Murasame* 「Murasame sama」, so you write it in their `## Character details` section like this:
 
-```markdown(朝武芳乃 character details)
-Calls 丛雨 「丛雨大人」
+```markdown(Tomotake Yoshino character details)
+Calls Murasame 「Murasame same」
 ```
 
-```markdown(丛雨 character details)
-Most people call me 「丛雨大人」 besides 「主人」. I think it's too formal, but I never asked them to stop.
+```markdown(Murasame character details)
+Most people call me 「Murasame sama」 besides 「Goshujin」. I think it's too formal, but I never asked them to stop.
 ```
 
 Otherwise the model and the engine can't connect and you'll get a bug.
@@ -177,9 +174,9 @@ Hand it to an agent (AI) and let the project's skill guide you through it.
 
 ## About maintaining this framework
 
-The author is a third-year student outside computer science, busy with experiments and classes (don't come for a food science major). I write scripts, and most of this is Python, which I can still read — though my Python is about "hello world" level, and a good half of this was written by AI.
+The author is a third-year student outside computer science, busy with experiments and classes . I write scripts, and most of this is Python, which I can still read — though my Python is about "hello world" level, and a good half of this was written by AI.
 
-The author might set up a superagent to maintain it, but right now that's not really possible: no money, meow — it all went to cosplay, and servers plus feeding several subagents is hard to afford. But I really will consider it!
+The author might set up a superagent to maintain it, but right now that's not really possible: no money, and servers plus feeding several subagents is hard to afford. But I really will consider it!
 
 So without a superagent, I'll find time to read what's in the issues and batch updates to make the framework better!
 
@@ -193,5 +190,3 @@ A: Of course. Even though the framework says "girl", you can tell your AI "I wan
 Q: Can I publish a work together with the framework, even commercially?
 A: Yes. The framework itself is under the Apache 2.0 open-source license, which allows free use, modification, and redistribution, including commercial distribution alongside your work; your characters, sprites, backgrounds, scripts, and BGM are yours and you can publish or sell them, as long as you comply with Apache 2.0 and the Ren'Py license. That said, please don't republish the framework under a new name as your own original work, and don't use it to copy someone else's work. For Ren'Py, check and follow its license.
 
-Q: Why is the UI/UX so bad?
-A: The author can't do art; the UI was made with 6.1sol, and you know how frontend design goes — I rolled back a lot of it too. If you care about it, design it yourself: the framework keeps the design entry points open, go wild!

@@ -177,7 +177,9 @@ This program contains free software licensed under a number of licenses, includi
 
 ### 方法一
 
-装 Ren'Py 8.5 或更新版本。新建一个空项目，把这里的 `game/` 覆盖进去，在 Launcher 里点启动。
+安装 Ren’Py 8.5.3。到 [GitHub Releases](https://github.com/ACEyumoooo/Girl-Agent-Love/releases) 下载框架 ZIP 并完整解压。在 Ren’Py Launcher 中，将项目目录设置为解压后作品目录的上一级，选中作品后启动。
+
+普通配置写入作品根目录的 `options.txt`，API 密钥写入 `key.txt`。既有作品若已使用备用配置目录，优先通过游戏内设置修改。填写真实密钥时请使用本地作品副本，提交或分享项目时请使用空白的密钥模板。
 
 ### 方法二
 

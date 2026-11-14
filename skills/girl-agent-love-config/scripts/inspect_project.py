@@ -171,17 +171,24 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description="检查 galgame Ren'Py 框架的配置")
     parser.add_argument("project", nargs="?", default=".")
     parser.add_argument("--strict", action="store_true", help="有 FAIL 时返回 1")
+    parser.add_argument("--config-dir", help="已确认的运行时配置目录，省略时只检查作品根目录配置")
     args = parser.parse_args(argv)
 
     root = find_root(args.project)
-    cfg = read_options(root)
+    config_dir = os.path.abspath(args.config_dir) if args.config_dir else root
+    cfg = read_options(config_dir)
     rep = Report()
 
     print("galgame 配置体检")
     print("项目：" + root)
+    print("配置检查目录：" + config_dir)
+    if not args.config_dir:
+        rep.info("配置检查仅覆盖作品根目录。使用备用配置目录时，请传入 --config-dir。")
+    if not os.path.isfile(os.path.join(config_dir, "options.txt")):
+        rep.fail("配置目录缺少 options.txt", "核对运行时配置目录或完整解压发行包")
     print("")
 
-    for rel in ("options.txt", "game/ai.rpy", "game/script.rpy", "game/seikai.md"):
+    for rel in ("game/ai.rpy", "game/script.rpy", "game/options_store.rpy", "game/seikai.md"):
         if not os.path.exists(os.path.join(root, rel)):
             rep.fail("缺少 " + rel, "确认目录是 GalGameFramework 根目录，不是 game/ 里面")
     for rel in ("LICENSE", "NOTICE", "game/LICENSE.txt", "game/fonts/LICENSE-OFL.txt"):
@@ -189,7 +196,7 @@ def main(argv=None):
             rep.warn("缺少 " + rel, "分发前补齐许可证文件")
 
     # Mirror runtime precedence for the text-model settings used by this check.
-    file_key = read_options(root, "key.txt").get("GALGAME_KEY", "")
+    file_key = read_options(config_dir, "key.txt").get("GALGAME_KEY", "")
     key = os.environ.get("GALGAME_KEY", "").strip() or file_key or cfg.get("GALGAME_KEY", "")
     for name in ("GALGAME_USING_HARNESS", "GALGAME_HOST"):
         if os.environ.get(name, "").strip():
@@ -399,7 +406,7 @@ def main(argv=None):
     print("")
     print("结果：FAIL %d，WARN %d，OK %d" % (rep.count("FAIL"), rep.count("WARN"), rep.count("OK")))
     if rep.count("FAIL"):
-        print("先修 FAIL，再处理 WARN。改完 options.txt 后重启游戏。")
+        print("先修 FAIL，再处理 WARN。改完配置后重启游戏。")
     elif rep.count("WARN"):
         print("没有阻塞项，可以启动；WARN 按需处理。")
     else:

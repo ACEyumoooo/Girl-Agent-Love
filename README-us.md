@@ -167,7 +167,9 @@ This program contains free software licensed under a number of licenses, includi
 
 ### Method 1
 
-Install Ren'Py 8.5 or newer. Create an empty project, overwrite its `game/` with the one here, and press Launch in the Launcher.
+Install Ren’Py 8.5.3. Download the framework ZIP from [GitHub Releases](https://github.com/ACEyumoooo/Girl-Agent-Love/releases) and extract it in full. Set the Ren’Py Launcher’s projects directory to the parent of the extracted project, then select the project and launch it.
+
+General settings go in `options.txt` at the project root, and API credentials go in `key.txt`. For installations already using a fallback settings directory, use the in-game Settings screen. Keep real credentials in your local project copy and use the blank credential template for commits and sharing.
 
 ### Method 2
 

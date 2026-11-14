@@ -47,12 +47,43 @@ Fribidi, libusb, Pygame_SDL2, SDL2, FreeType, libpng, and zlib. The complete
 list and their licenses are in `game/LICENSE.txt`. Some of them are LGPL; the
 source repositories are listed there.
 
+## Mozilla CA certificate bundle
+
+- Component: `game/cacert.pem`, root certificates extracted from Mozilla's CA database
+- Upstream: https://curl.se/docs/caextract.html (built from Mozilla `certdata.txt`)
+- Copyright: Mozilla Foundation and the certificate authorities listed in the file
+- License: Mozilla Public License 2.0 for the certificate data
+- Full text: https://www.mozilla.org/MPL/2.0/
+
 ## Generated content
 
 Images, voice files, and story text generated with a model or voice service are
 not covered by the framework's Apache License. Check the terms of the service
 you use before commercial release. Characters, scripts, music, and other assets
 you add are your responsibility.
+
+## Lucide quick-menu icons
+
+- Component: Lucide icons used under `game/gui/quick/`
+- Copyright: Lucide Icons and Contributors; some icons derive from Feather
+- License: ISC (including the bundled Feather attribution)
+- Full text and attribution: `game/gui/quick/LICENSE-Lucide.txt`
+- Upstream: https://lucide.dev/
+
+## Color Picker for Ren'Py
+
+- Component: Color Picker for Ren'Py by Feniks (shawna-p)
+- Copyright: 2023 shawna-p
+- License: MIT
+- Full text: `game/LICENSE-color-picker.txt`
+- Upstream: https://github.com/shawna-p/renpy-color-picker
+
+## Noto Serif SC menu font
+
+- Component: Noto Serif SC SemiBold, `game/fonts/NotoSerifSC-SemiBold.ttf`
+- Copyright: 2012 Google Inc. All Rights Reserved.
+- License: SIL Open Font License 1.1
+- Full text: `game/fonts/LICENSE-NotoSerifSC.txt`
 
 ## Apache License 2.0 notes
 

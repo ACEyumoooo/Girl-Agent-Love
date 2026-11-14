@@ -62,6 +62,14 @@ files. Keep the copyright, patent, trademark, and attribution notices that come
 with the framework. The license does not grant permission to use the project's
 name or logos as trademarks.
 
+## Mozilla CA certificate bundle
+
+- Component: `game/cacert.pem`, root certificates extracted from Mozilla's CA database
+- Upstream: https://curl.se/docs/caextract.html (built from Mozilla `certdata.txt`)
+- Copyright: Mozilla Foundation and the certificate authorities listed in the file
+- License: Mozilla Public License 2.0 for the certificate data
+- Full text: https://www.mozilla.org/MPL/2.0/
+
 ## Lucide quick-menu icons
 
 - Component: Lucide icons used under `game/gui/quick/`

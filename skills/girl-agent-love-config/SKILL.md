@@ -33,9 +33,9 @@ metadata:
 
 开始前确定作品目录，之后所有相对路径都相对它：
 
-- 判定：目录里有 `game/seikai.md` 就是作品目录；作品目录由用户指定，或由当前插件/框架的设置决定，不要写死个人目录。
+- 判定：目录里应有 `game/ai.rpy`、`game/script.rpy` 和 `game/options_store.rpy`。作品目录由用户指定，或由当前框架的设置决定。新项目可以尚未创建 `game/seikai.md`。
 - 用户给过路径就用用户的；用户改过设置里「作品目录」的，按设置里的；都没有就问用户。
-- 新项目没有现成目录时，用当前插件/框架自带的 `template/` 或 `assets/renpy/` 初始化；不要改模板本身。
+- 新项目没有现成目录时，将 GitHub Releases 的框架 ZIP 完整解压为独立作品目录。
 
 关键路径：
 
@@ -44,15 +44,15 @@ game/seikai.md                        世界观
 game/persona/<角色id>.md              人物卡，me.md 是玩家
 game/picture/scene/<time>_<place>.*   背景
 game/picture/standing/<角色id>/<id>.* 立绘
-savedata/settings.json                插件设置（模型、音量、颜色、键盘等）
+options.txt                           普通配置（模型、音量、颜色、键盘等）
+key.txt                               API 密钥
 ```
 
 ## 内部：写接口与音频设置
 
-设置按作品目录判定写哪里：
-
-- 有 `<作品目录>/options.txt`（Ren'Py 框架）：改 `options.txt`，一行一个 `KEY=VALUE`；只改对应行，保留注释和顺序。
-- 否则（DSH 插件）：改 `<作品目录>/savedata/settings.json`，值是字符串；缺的键补上。
+- 新解压的工程使用作品根目录的配置。缺少 `options.txt` 时先核对所选目录和发行包完整性。
+- 配置使用 UTF-8，每行一个 `KEY=VALUE`，只改对应行并保留其他条目和注释。普通选项写 `options.txt`；`GALGAME_KEY`、`GALGAME_IMAGE_KEY`、`GALGAME_VOICE_KEY`、`GALGAME_FALLBACK_KEY`、`GALGAME_DOCTOR_KEY` 写同一配置目录的 `key.txt`。密钥归类以 `game/options_schema.rpy` 的 `OPTIONS_SECRET_KEYS` 为准。
+- 既有作品若使用备用配置目录，优先通过游戏内设置修改。已确认运行时配置目录时，可在退出游戏后编辑该目录的两个文件，并在体检时传入 `--config-dir`。备用目录规则见 `game/options_store.rpy`。
 
 要写的键：
 
@@ -462,7 +462,7 @@ MiMo 克隆跳过百炼话术，确认所填模型支持克隆及参考音频可
 请输入key
 ```
 
-停止回答，等用户输入；收到后写入 `GALGAME_KEY`，只报「已填」。
+停止回答，等用户输入；收到后将 `GALGAME_KEY` 写入 `key.txt`，只报「已填」。
 
 问完进入第 10 步。
 
@@ -603,6 +603,7 @@ MiMo 克隆跳过百炼话术，确认所填模型支持克隆及参考音频可
 
 ```
 python "<本技能目录>/scripts/inspect_project.py" "<作品目录>"
+# 已知备用配置目录时，加 --config-dir "<实际配置目录>"
 ```
 
 脚本不在就手动查上面清单。

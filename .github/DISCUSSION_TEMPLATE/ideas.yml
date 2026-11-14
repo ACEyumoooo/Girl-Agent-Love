@@ -4,53 +4,53 @@ body:
   - type: markdown
     attributes:
       value: |
-        💡 有想法就写下来。一句话也可以，但说得越具体越容易被实现。
+        💡 Ideas are welcome. One sentence is fine, but the more specific it is, the easier it is to build.
 
-        - 先搜一下有没有相同或相近的建议
-        - 说清楚**你要解决什么问题**，而不只是「加个功能」
+        - Search first to see if a similar idea already exists
+        - Explain the **problem you're trying to solve**, not just "add a feature"
 
   - type: textarea
     id: scenario
     attributes:
-      label: 使用场景
-      description: 你在做什么的时候觉得不方便？
+      label: Use case
+      description: What were you doing when it felt inconvenient?
     validations:
       required: true
 
   - type: textarea
     id: proposal
     attributes:
-      label: 想要的效果
-      description: 最好写得像验收标准，例如「点这个按钮后，立绘应该……」
+      label: Desired outcome
+      description: Write it like an acceptance criterion, e.g. "after clicking this button, the sprite should ..."
     validations:
       required: true
 
   - type: textarea
     id: workaround
     attributes:
-      label: 现在的替代做法（可选）
-      description: 你现在是怎么绕过这个问题的？
+      label: Current workaround (optional)
+      description: How do you get around this today?
 
   - type: dropdown
     id: area
     attributes:
-      label: 影响范围
+      label: Scope
       options:
-        - 界面 / GUI
-        - 剧情与文本生成
-        - 立绘 / 背景 / 生图
-        - 语音 / BGM
-        - 存档 / 读档 / 历史
-        - 配置与设置
-        - 文档 / 示例
-        - 其他
+        - UI / GUI
+        - Story and text generation
+        - Sprites / backgrounds / image generation
+        - Voice / BGM
+        - Save / load / history
+        - Configuration and settings
+        - Docs and examples
+        - Other
     validations:
       required: true
 
   - type: checkboxes
     id: checklist
     attributes:
-      label: 确认事项
+      label: Checklist
       options:
-        - label: 我已搜索过现有建议，确认没有重复
+        - label: I searched existing ideas and found no duplicate
           required: true

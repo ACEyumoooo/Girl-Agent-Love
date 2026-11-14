@@ -1,0 +1,56 @@
+title: "[Idea] "
+labels: ["idea"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        💡 有想法就写下来。一句话也可以，但说得越具体越容易被实现。
+
+        - 先搜一下有没有相同或相近的建议
+        - 说清楚**你要解决什么问题**，而不只是「加个功能」
+
+  - type: textarea
+    id: scenario
+    attributes:
+      label: 使用场景
+      description: 你在做什么的时候觉得不方便？
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 想要的效果
+      description: 最好写得像验收标准，例如「点这个按钮后，立绘应该……」
+    validations:
+      required: true
+
+  - type: textarea
+    id: workaround
+    attributes:
+      label: 现在的替代做法（可选）
+      description: 你现在是怎么绕过这个问题的？
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: 影响范围
+      options:
+        - 界面 / GUI
+        - 剧情与文本生成
+        - 立绘 / 背景 / 生图
+        - 语音 / BGM
+        - 存档 / 读档 / 历史
+        - 配置与设置
+        - 文档 / 示例
+        - 其他
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: 确认事项
+      options:
+        - label: 我已搜索过现有建议，确认没有重复
+          required: true

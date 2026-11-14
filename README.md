@@ -6,7 +6,7 @@ Girl Agent Love 是一个可以通过 Ren'Py 引擎来使用 AI 实时输出的�
 
 Girl Agent Love is a framework that uses Ren'Py as the engine and lets AI write the story in real time. You can use it to build a galgame of your own.
 
-**当前版本：1.0-b.1**
+**当前版本：1.0-b**
 
 
 

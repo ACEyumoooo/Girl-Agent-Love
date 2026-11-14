@@ -25,7 +25,7 @@ define gui.show_name = True
 
 ## The version of the game.
 
-define config.version = "1.0-b"
+define config.version = "1.0-b.1"
 
 ## 游戏内右键不打开原生游戏菜单（与本工程的 JSON 存档/设置体系不兼容）。
 define config.game_menu_action = NullAction()

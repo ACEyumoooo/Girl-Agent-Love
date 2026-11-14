@@ -1,24 +1,24 @@
-name: 🐞 Bug 报告
-description: 框架本身的错误：报错、崩溃、行为不对、界面异常
+name: 🐞 Bug report
+description: Something in the framework is broken — errors, crashes, wrong behavior, or UI glitches
 title: "[Bug] "
 labels: ["bug"]
 body:
   - type: markdown
     attributes:
       value: |
-        感谢反馈！提交前请先确认：
+        Thanks for reporting! Please check before submitting:
 
-        - Ren'Py 版本是 **8.5 或更新**
-        - 用的是**最新 main**，不是很久以前下载的包
-        - 已按 README 配好 `options.txt` / `key.txt`
+        - Ren'Py version is **8.5 or newer**
+        - You're on the **latest main**, not an old download
+        - `options.txt` / `key.txt` are configured as described in the README
 
-        请一帖只说一件事。**不要贴 API key、token 或密码**，会公开泄漏。
+        One issue per report. **Never paste API keys, tokens, or passwords** — they become public.
 
   - type: input
     id: framework-version
     attributes:
-      label: 框架版本
-      description: 游戏内「关于」页，或 game/options.rpy 里的 config.version
+      label: Framework version
+      description: Shown in the in-game About screen, or game/options.rpy (config.version)
       placeholder: 1.0-b
     validations:
       required: true
@@ -26,7 +26,7 @@ body:
   - type: input
     id: renpy-version
     attributes:
-      label: Ren'Py 版本
+      label: Ren'Py version
       placeholder: 8.5.3
     validations:
       required: true
@@ -34,7 +34,7 @@ body:
   - type: dropdown
     id: os
     attributes:
-      label: 操作系统
+      label: Operating system
       options:
         - Windows
         - macOS
@@ -45,11 +45,11 @@ body:
   - type: textarea
     id: steps
     attributes:
-      label: 复现步骤
-      description: 从启动开始，尽量写得能照着点出来
+      label: Steps to reproduce
+      description: From launch, as concretely as possible
       placeholder: |
-        1. 启动游戏
-        2. 打开设置
+        1. Launch the game
+        2. Open settings
         3. ...
     validations:
       required: true
@@ -57,43 +57,43 @@ body:
   - type: textarea
     id: expected
     attributes:
-      label: 期望行为
+      label: Expected behavior
     validations:
       required: true
 
   - type: textarea
     id: actual
     attributes:
-      label: 实际行为
+      label: Actual behavior
     validations:
       required: true
 
   - type: textarea
     id: logs
     attributes:
-      label: 报错原文
-      description: 贴 traceback.txt、log.txt 或控制台输出，不要只截图
+      label: Error output
+      description: Paste traceback.txt, log.txt, or console output as text instead of a screenshot
       render: text
 
   - type: textarea
     id: config
     attributes:
-      label: 相关配置
-      description: options.txt 里和问题有关的行（模型、生图、语音、harness 等）
+      label: Relevant configuration
+      description: Lines in options.txt related to the problem (model, image generation, voice, harness, etc.)
       render: text
 
   - type: textarea
     id: screenshots
     attributes:
-      label: 截图（可选）
-      description: 界面或立绘问题时贴图更有用
+      label: Screenshots (optional)
+      description: Helpful for UI or sprite issues
 
   - type: checkboxes
     id: checklist
     attributes:
-      label: 确认事项
+      label: Checklist
       options:
-        - label: 我已搜索现有 Issues 和 Discussions，确认没有重复
+        - label: I searched existing issues and discussions and found no duplicate
           required: true
-        - label: 我没有在内容里贴 API key 或密码
+        - label: I did not include any API key or password in this report
           required: true

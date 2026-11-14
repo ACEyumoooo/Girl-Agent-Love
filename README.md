@@ -31,7 +31,6 @@ Girl Agent Love is a framework that uses Ren'Py as the engine and lets AI write 
 ├── README.md
 ├── README-us.md
 ├── LICENSE / NOTICE / THIRD_PARTY_NOTICES.md
-├── start-game.bat / lint.bat
 ├── game/
 │   ├── ai.rpy / script.rpy / screens.rpy / options.rpy
 │   ├── seikai.md

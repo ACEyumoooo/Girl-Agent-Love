@@ -1,0 +1,22 @@
+{
+  "nodes": {
+    "p01": {
+      "beats": [
+        {"character": "旁白", "is_speech": false, "text": "离线节点一。没有 GALGAME_KEY 时读 game/mock.json，方便先验证界面、选项、存档。", "scene": "morning_classroom"},
+        {"character": "角色名字", "standing": 1, "is_speech": true, "text": "离线节点里的一句台词，standing 写人物卡里的立绘数字 id。", "scene": "morning_classroom"}
+      ],
+      "choices": [
+        {"label": "选项一", "hint": "说明这个选项的代价", "add": 2, "react": "选完之后立刻显示的一句反应。", "next": "p02"},
+        {"label": "选项二", "hint": "另一条路", "add": -1, "flag": "mock_flag", "react": "带 flag 的写法，会写进 st.flags。", "next": "p02"}
+      ]
+    },
+    "p02": {
+      "beats": [
+        {"character": "角色名字", "standing": 2, "is_speech": true, "text": "离线节点二，走完会自动回到 p01。", "scene": "dusk_classroom"}
+      ],
+      "choices": [
+        {"label": "回到开头", "hint": "循环", "add": 0, "react": "继续循环。", "next": "p01"}
+      ]
+    }
+  }
+}

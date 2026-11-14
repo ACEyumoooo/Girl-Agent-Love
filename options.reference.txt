@@ -1,0 +1,470 @@
+# options.reference.txt
+# 只做说明参考，游戏不读取这个文件；真正生效的是同目录的 options.txt。
+# options.txt 由游戏自动维护，没有注释；这里的键、默认值、分组与它一致。
+
+# ============================================================
+# 一、作品与角色
+# ============================================================
+
+# 题材词，只影响提示里的措辞，比如「校园恋爱」「都市治愈」「奇幻冒险」
+GALGAME_GENRE=校园恋爱
+
+# 指定女主角：写人物卡的 id 或 name。留空且「自动选择女主角」开启时，自动选初始好感度最高的角色
+# （修改后需要重启游戏）
+GALGAME_HEROINE=
+
+# 开启后，上面「指定女主角」留空时自动选初始好感度最高的角色；关闭时只使用上面填写的角色。
+# （修改后需要重启游戏）
+GALGAME_HEROINE_AUTO=1
+
+# Ren'Py 自带存档目录名（不是自定义剧情存读档的 savedata）。留空用 galgame-<女主角 id>
+# （修改后需要重启游戏）
+GALGAME_SAVE_DIR=
+
+# 开启后允许「我」显示立绘，需要在 persona 里写人设，并在立绘文件夹中放入图片；关闭时主角不出立绘。
+GALGAME_PLAYER_SPRITE=0
+
+# ============================================================
+# 二、世界观与注入
+# ============================================================
+
+# 每多少拍把世界观、人设、章节、日记摘要完整重注入一次，防止漂移。切换模型时会强制重注入一次，计数归零
+GALGAME_REINJECT_EVERY=40
+
+# 每多少拍把新剧情里的长期设定合并写回人物卡的「## 剧情设定」一节
+GALGAME_DETAIL_INTERVAL=50
+
+# 人物卡里最多保留多少条长期设定
+GALGAME_PERSONA_MAX=20
+
+# 开启后允许模型在剧情里自行新增角色；关闭时只使用现有角色卡。新增角色会按人物卡规则保存。
+GALGAME_AUTO_CHARACTER=0
+
+# 开启自动新增角色时，一次请求最多新增几个正式角色。
+GALGAME_AUTO_CHARACTER_MAX=1
+
+# 模型请求返回一次最多几个临时配角
+GALGAME_TEMP_CAST_MAX=2
+
+# ============================================================
+# 三、对话模型（开启 harness 生成时不使用这一组）
+# ============================================================
+
+# OpenAI 兼容的 chat/completions 地址
+GALGAME_ENDPOINT=
+
+# 密钥
+GALGAME_KEY=
+
+GALGAME_MODEL=
+
+# 单次请求超时，秒
+GALGAME_TIMEOUT=60
+
+# 思考强度。数值越高模型想得越久、回复越慢，可选值请查所用模型的接口文档；默认 1 是最低强度。
+GALGAME_THINKING=1
+
+# ============================================================
+# 四、备用模型
+# ============================================================
+
+# 主模型窗口满或报错时自动切过去；GALGAME_FALLBACK_MODEL 留空就不启用
+GALGAME_FALLBACK_MODEL=
+
+# 备用模型的地址和密钥，留空就沿用上面主模型的地址和 key
+# 也就是说：只写 FALLBACK_MODEL 也能用，等于同一个服务商换一个模型
+GALGAME_FALLBACK_ENDPOINT=
+
+GALGAME_FALLBACK_KEY=
+
+# 开启后使用下面这组自愈模型：后台检查坏 JSON、补安全剧情；关闭时非 harness 不启用，harness 模式下交给 harness 模型。
+GALGAME_DOCTOR=0
+
+# 自愈模型名；留空不启用
+GALGAME_DOCTOR_MODEL=
+
+# 自愈模型的独立接口；留空复用主模型或备用模型的地址和 key
+GALGAME_DOCTOR_ENDPOINT=
+
+GALGAME_DOCTOR_KEY=
+
+# 后台巡检间隔，秒
+GALGAME_DOCTOR_INTERVAL=15
+
+# 预取卡住多少秒算异常
+GALGAME_DOCTOR_STALL=90
+
+# 一局最多调用自愈模型几次，防止无限重试
+GALGAME_DOCTOR_MAX=3
+
+# 开启后在新人上场时截取游戏画面，检查头顶是否被切、两人是否重叠、对话框上方是否露出下半身，再把 dx/dy/zoom 回写到引擎并按角色缓存。需要先开启自愈，并至少填一个能看图的模型；关闭则不检查。
+GALGAME_DOCTOR_FRAME=1
+
+# 构图检查用的视觉模型；留空用 GALGAME_DOCTOR_MODEL
+# 文本模型看不了图，这里要填支持图片输入的模型
+GALGAME_DOCTOR_VISION_MODEL=
+
+# 一局最多检查几次立绘构图，防止反复调用
+GALGAME_DOCTOR_FRAME_MAX=8
+
+# 开启后允许 harness 自己修复坏响应；关闭时只由引擎按上面的开关处理。
+GALGAME_HARNESS_SELF_HEAL=1
+
+# ============================================================
+# 五、多智能体
+# ============================================================
+
+# 开启后每张非玩家 persona 卡单独调用一次子模型，各自只拿到自己的卡、世界观和 game/agent.md；主模型按 game/director.md 补旁白、重排并写选择。关闭时由一个模型写全部内容。
+GALGAME_SUBAGENTS=0
+
+# 子模型用的模型名。留空就用上面的 GALGAME_MODEL。
+GALGAME_SUBAGENT_MODEL=
+
+# 每个子模型这一轮给几句台词
+GALGAME_SUBAGENT_LINES=2
+
+# 每多少拍给每个角色写一次日记（做过什么、对别人的印象）
+GALGAME_DIARY_EVERY=50
+
+# ============================================================
+# 六、内容来源：harness 还是语言模型
+# ============================================================
+
+# 开启后交给当前 harness 生成（通过 savedata/harness/ 的文件队列），不再使用第三、四节的对话模型；用 renpy.exe 直接启动时没有 harness，会自动回退到对话模型并在日志里写明。关闭时使用上面的对话模型生成。
+GALGAME_USING_HARNESS=1
+
+# 启动方标记。harness 启动时应设成 harness；renpy.exe 启动时保持空
+GALGAME_HOST=harness
+
+# 等 harness 回包最多多少秒，超时这一批走错误提示
+GALGAME_HARNESS_TIMEOUT=45
+
+# ============================================================
+# 七、生图（五张图分别控制）
+# ============================================================
+
+# 开启后缺少背景图时，调用生图模型补 picture/scene/<time>_<place>.jpg（例如 dusk_classroom.jpg）；关闭时不生成。
+GALGAME_GEN_SCENE=0
+
+# 开启后缺少立绘时，调用生图模型补 picture/standing/<角色id>/<立绘id>.webp；关闭时不生成。
+GALGAME_GEN_STANDING=0
+
+# 开启后缺少选项框装饰时，调用生图模型补 picture/ui/choice.png；关闭时不生成。
+GALGAME_GEN_UI_CHOICE=0
+
+# 开启后缺少对话栏装饰时，调用生图模型补 picture/ui/dialogue.png；关闭时不生成。
+GALGAME_GEN_UI_DIALOGUE=0
+
+# 开启后缺少首页装饰时，调用生图模型补 picture/ui/title.png；关闭时不生成。
+GALGAME_GEN_UI_TITLE=0
+
+# 生图接口
+# OpenAI 兼容写带 compatible-mode 的 /images/generations，引擎自动分辨
+# （修改后需要重启游戏）
+GALGAME_IMAGE_ENDPOINT=
+
+# 生图密钥，留空时复用上面的 GALGAME_KEY
+# （修改后需要重启游戏）
+GALGAME_IMAGE_KEY=
+
+# （修改后需要重启游戏）
+GALGAME_IMAGE_MODEL=
+
+# 背景出图尺寸（宽*高，万相 2.1 每边 512-1440）
+# （修改后需要重启游戏）
+GALGAME_IMAGE_SIZE=1280*720
+
+# 立绘出图尺寸。Ren'Py 里没有 Pillow，运行时生成的立绘是白底的，这个包自带抠图，但是如果要精致请找模型，可以试试https://github.com/TongjiAI4E/VN_Sprite_Expression_Workflow
+# （修改后需要重启游戏）
+GALGAME_IMAGE_SIZE_PORTRAIT=960*1440
+
+# 全作统一画风说明，gen_art.py 会追加到每条立绘提示里
+GALGAME_ART_NOTE=日系校园恋爱视觉小说，干净线条，柔和自然光，低饱和蓝灰配暖橙点缀，人物比例写实偏二次元，背景轻微景深
+
+# ============================================================
+# 八、语音，使用前请查看自己的语音模型api文档进行配置，这里的设置可能会修改。
+# ============================================================
+
+# 开启后角色台词会先合成语音存到 game/voice/，显示时播放；关闭时不生成语音。
+GALGAME_VOICE=0
+
+# 语音类型，tts 为文生声， clone 为声生声。
+GALGAME_VOICE_MODE=tts
+
+# 接口协议：openai 走 OpenAI 兼容的 /audio/speech；dashscope 走阿里云百炼
+# 留空时按端点自动识别（含 aliyuncs.com 就按百炼）
+GALGAME_VOICE_API=dashscope
+
+# 语音接口。openai 协议要填完整的 /audio/speech 地址；
+# 百炼留空默认 https://dashscope.aliyuncs.com/api/v1/services/aigc/multimodal-generation/generation
+GALGAME_VOICE_ENDPOINT=
+
+# 语音密钥，留空复用 GALGAME_KEY
+GALGAME_VOICE_KEY=
+
+# 模型：百炼文生声写 qwen3-tts-flash；OpenAI 兼容按服务商填
+GALGAME_VOICE_MODEL=qwen3-tts-flash
+
+# 百炼文生声的固定音色（Cherry/Serena/Ethan…，见百炼音色列表）；
+# 人物卡 frontmatter 写 voice_name 可以逐个角色覆盖
+GALGAME_VOICE_NAME=Cherry
+
+# 百炼文生声的语种：Chinese / English / Japanese / Auto 等
+GALGAME_VOICE_LANG=Chinese
+
+# 百炼声音复刻：业务空间 WorkspaceId（百炼控制台可查）；clone 模式必填
+GALGAME_VOICE_CLONE_WORKSPACE=
+
+# 复刻音色的目标模型，必须和后面合成用的模型一致
+GALGAME_VOICE_CLONE_MODEL=qwen-audio-3.1-tts-plus
+
+# 复刻音色名前缀，只能数字/英文，最长 10 位
+GALGAME_VOICE_CLONE_PREFIX=galgame
+
+# 音频格式：wav / mp3（百炼固定按 wav 存）
+GALGAME_VOICE_FORMAT=wav
+
+# 开启后也生成「我」的语音，需要在 persona/me.md 写「## 声音」；关闭时不生成。
+GALGAME_VOICE_PLAYER=0
+
+# 单条语音超时，秒
+GALGAME_VOICE_TIMEOUT=60
+
+# ============================================================
+# 九、上下文与记忆
+# ============================================================
+
+# 上下文预算（token 估算），超过这个比例就压缩历史并考虑切备用模型
+GALGAME_CONTEXT_LIMIT=32000
+
+GALGAME_CONTEXT_RATIO=0.75
+
+# 压缩时保留最近多少拍原文，其余合并成摘要
+GALGAME_SUMMARY_KEEP=20
+
+# 每次请求喂给模型最近多少拍
+GALGAME_HISTORY_FEED=8
+
+# ============================================================
+# 十、场景与镜头
+# ============================================================
+
+# 同一背景至少停留多少拍才允许切换，防止背景来回跳
+GALGAME_SCENE_MIN_STAY=5
+
+# 开启后模型只能在 day / dusk / night 里选，一批最多换一次，并且要满足最短停留；目标组合没有图就保持当前场景。关闭后每拍都可以跟着模型给的 time/place 换。
+GALGAME_SCENE_LOCK=1
+
+# BGM 最少停留多少拍，防止模型频繁切换
+GALGAME_BGM_MIN_STAY=5
+
+# 开启后镜头会有变化（wide / medium / close），决定立绘远近；关闭时镜头固定。
+GALGAME_SHOT_VARY=1
+
+# ============================================================
+# 十一、剧情节奏
+# ============================================================
+
+# 滚动预生成的窗口
+GALGAME_PLAN_AHEAD=40
+
+# 每拍的字数与行数上限
+GALGAME_BEAT_MIN=20
+
+GALGAME_BEAT_MAX=50
+
+GALGAME_BEAT_SENTENCES=2
+
+GALGAME_BEAT_LINES=2
+
+# ============================================================
+# 十二、选项框密度
+# ============================================================
+
+# 统计窗口：每多少拍统计一次
+GALGAME_CHOICE_WINDOW=30
+
+# 窗口内至少几次、最多几次选择
+GALGAME_CHOICE_MIN=1
+
+GALGAME_CHOICE_MAX=2
+
+# 两次选择之间至少隔多少拍
+# 单次菜单选项数；留空兼容原 CHOICE_MIN/MAX。
+GALGAME_MENU_OPTIONS_MIN=2
+GALGAME_MENU_OPTIONS_MAX=4
+GALGAME_CHOICE_GAP=12
+
+# ============================================================
+# 十三、章节
+# ============================================================
+
+# 开启后有章节推进，第一章写完接第二章；关闭则不分章，剧情一直往下走。
+GALGAME_ENABLE_CHAPTER=1
+
+# 开启后没有结局，剧情一直往下走；关闭则允许模型给出 ending，故事可以收束。
+GALGAME_ENDLESS=1
+
+# 一章多少拍；到 60% 时提前生成下一章大纲
+GALGAME_CHAPTER_LENGTH=40
+
+# ============================================================
+# 十四、显示
+# ============================================================
+
+# 打字机速度，字/秒
+GALGAME_TEXT_CPS=36
+
+# 显示字体：填 game/fonts/ 下的文件名（.ttf/.otf/.ttc）。
+# 设置页点「切换」循环选择；保存后需要重启才生效。
+# （修改后需要重启游戏）
+GALGAME_FONT=
+
+# ============================================================
+# 十五、调试
+# ============================================================
+
+# 开启后写 ai_debug.log，验收看日志和 savedata/history.json，不要靠截图；关闭则不写日志。
+GALGAME_DEBUG=1
+
+# 开启后跳过主菜单直接进游戏，只给自动化流程用；关闭时正常停在主菜单。
+# （修改后需要重启游戏）
+GALGAME_AUTOSTART=0
+
+# ============================================================
+# 画面显示
+# ============================================================
+
+# 显示模式
+GALGAME_DISPLAY_MODE=window
+
+# 画面比例
+GALGAME_ASPECT=16:9
+
+# 允许悬浮窗
+GALGAME_ALWAYS_ON_TOP=1
+
+# ============================================================
+# 游戏设置
+# ============================================================
+
+# 自动跳过已读文本
+GALGAME_SKIP_READ=0
+
+# 未读文本快进
+GALGAME_SKIP_UNSEEN=0
+
+# 选择后的快进是否解除
+GALGAME_SKIP_AFTER_CHOICE=0
+
+# Ctrl 键的快捷方式
+GALGAME_CTRL_SKIP=read
+
+# 选择后自动模式是否解除
+GALGAME_AUTO_AFTER_CHOICE=0
+
+# 自动隐藏鼠标指针
+GALGAME_MOUSE_HIDE=0
+
+# 存档、读档的鼠标操作
+GALGAME_SLOT_CLICK=single
+
+# ============================================================
+# 文本
+# ============================================================
+
+# 对话框不透明度
+GALGAME_TEXTBOX_OPACITY=100
+
+# 对话框颜色
+GALGAME_TEXTBOX_COLOR=#fffcf6
+
+# 观点变更时对话框颜色
+GALGAME_VIEWPOINT_COLOR=#f5dfb6
+
+# 未读文字颜色
+GALGAME_TEXT_UNREAD_COLOR=#242a32
+
+# 已读文字颜色
+GALGAME_TEXT_READ_COLOR=#525a64
+
+# ============================================================
+# 音频设置
+# ============================================================
+
+# 主音量
+GALGAME_VOL_MASTER=80
+
+# BGM
+GALGAME_VOL_BGM=80
+
+# BGM（角色说话时）
+GALGAME_VOL_BGM_TALK=60
+
+# 游戏音效
+GALGAME_VOL_SFX=80
+
+# 角色语音
+GALGAME_VOL_VOICE=90
+
+# ============================================================
+# 键盘
+# ============================================================
+
+# 打开存档界面
+GALGAME_KEY_SAVE=F2+S
+
+# 打开读档界面
+GALGAME_KEY_LOAD=F3+L
+
+# 快速存档
+GALGAME_KEY_QSAVE=F11
+
+# 快速读档
+GALGAME_KEY_QLOAD=F12
+
+# 打开设置
+GALGAME_KEY_SETTINGS=F8
+
+# 窗口全屏切换
+GALGAME_KEY_FULLSCREEN=F4
+
+# 下一句/确定
+GALGAME_KEY_ADVANCE=Enter
+
+# 自动模式
+GALGAME_KEY_AUTO=F6+A
+
+# 快进模式
+GALGAME_KEY_SKIP=F7+F
+
+# Ctrl 快进
+GALGAME_KEY_CTRL=Ctrl
+
+# 打开历史记录
+GALGAME_KEY_HISTORY=F5+R
+
+# 历史记录上一页
+GALGAME_KEY_HISTORY_PREV=PageUp
+
+# 历史记录下一页
+GALGAME_KEY_HISTORY_NEXT=PageDown
+
+# 上一句
+GALGAME_KEY_BACK=Backspace
+
+# 快退
+GALGAME_KEY_REWIND=D
+
+# 返回标题
+GALGAME_KEY_TITLE=F10
+
+# 隐藏对话框
+GALGAME_KEY_HIDE=Delete
+
+# 语音重播
+GALGAME_KEY_REPLAY=F9
+
+# 语音收藏
+GALGAME_KEY_FAV=V
+

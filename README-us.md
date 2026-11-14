@@ -1,5 +1,7 @@
 # Girl Agent Love
 
+[中文](README.md) · **English**
+
 Girl Agent Love is a framework that uses Ren'Py as the engine and lets AI write the story in real time. You can use it to build a galgame of your own.
 
 **Current version: 1.0-b**
@@ -73,7 +75,7 @@ voice\\_name: Serena
 2. If a character has a special way of addressing someone, put it in that speaker's own card. For example, *Tomotake Yoshino* calls *Murasame* 「Murasame sama」, so you write it in their `## Character details` section like this:
 
 ```markdown(Tomotake Yoshino character details)
-Calls Murasame 「Murasame same」
+Calls Murasame 「Murasame sama」
 ```
 
 ```markdown(Murasame character details)

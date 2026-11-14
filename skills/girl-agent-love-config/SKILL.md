@@ -3,7 +3,7 @@ name: girl-agent-love-config
 description: gal-guide 配置引导。先问好，请用户提供安装目录并安装 Ren’Py 8.5.3，再让用户选择快速或专业模式，模式与立绘/背景是否自备都用 harness 选择题（ask_user_question）点选，不用用户打字；快速模式收需求、代填世界观与人物、按需询问生图 api 网址/模型名/key、导入或生成素材，再问角色音频（阿里云/自填接口、文生声或克隆、音色与语言），最后问 harness 或自备语言模型、是否启动 subagent；专业模式依次让用户提供世界观/背景目录、人物卡/立绘目录，读取后检查并指出错误，缺图按同一套问题补齐。全部完成后告诉用户配置完成并提醒去设置里填选项和模型，随后打开游戏。所有给用户的话术按原文逐字发送。
 metadata:
   trigger: 配置 galgame、Girl-Agent-Love、gal-guide；快速或专业模式配置游戏
-  version: 1.6.1
+  version: 1.0-b
 ---
 
 # gal-guide · Girl Agent Love 配置引导

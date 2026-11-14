@@ -8,7 +8,7 @@ allowed-tools:
   - Bash
 metadata:
   trigger: 做视觉小说、galgame、恋爱模拟；续写故事做成 Ren'Py 游戏
-  version: 1.6.1
+  version: 1.0-b
 ---
 
 # Galgame Ren'Py 框架

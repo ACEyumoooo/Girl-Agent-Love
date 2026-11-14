@@ -1,4 +1,3 @@
-# Modified for GalGameFramework 1.7.4 (2026-11-10): shared startup/live font projection.
 # 中文字体。具体文件由 options.txt 的 GALGAME_FONT 决定，
 # 先查 game/fonts/ 里有没有这个文件，没有就退回思源黑体。
 # gui.rpy 的 define 会直接用 FONT_PATH，这里再兜底一层。

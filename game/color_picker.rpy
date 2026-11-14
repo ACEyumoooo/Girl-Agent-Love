@@ -1,4 +1,3 @@
-# Modified for GalGameFramework 1.7.9-3: consume picker drag events and commit on release.
 ################################################################################
 ##
 ## Color Picker for Ren'Py by Feniks (feniksdev.itch.io / feniksdev.com) v1.4

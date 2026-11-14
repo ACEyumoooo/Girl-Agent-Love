@@ -1,8 +1,3 @@
-# Modified for GalGameFramework 1.7.4 (2026-11-10): consistent player preference defaults.
-# Modified for GalGameFramework 1.7.3 (2026-11-10): progress storage release.
-# Modified for GalGameFramework 1.7.2 (2026-11-09): release-safe development and console defaults.
-# Modified for GalGameFramework 1.7.1 (2026-11-09): optional, validated title music hook.
-# Modified for GalGameFramework 1.7.0 (2026-11-09): exclude authoring templates from game builds.
 ## This file contains options that can be changed to customize your
 ## game.
 ##
@@ -30,7 +25,7 @@ define gui.show_name = True
 
 ## The version of the game.
 
-define config.version = "1.7.9-9"
+define config.version = "1.0-b"
 
 ## 游戏内右键不打开原生游戏菜单（与本工程的 JSON 存档/设置体系不兼容）。
 define config.game_menu_action = NullAction()

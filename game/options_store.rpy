@@ -1,5 +1,3 @@
-# Modified for GalGameFramework 1.7.4 (2026-11-10): writable per-project settings fallback.
-# Modified for GalGameFramework 1.7.3 (2026-11-10): reuse unique atomic writer; preserve backups.
 init -9 python:
     """options.txt 的读写：启动读一次、内存是唯一真相、保存时整份原子重写、
     缺项用默认、非法值回退、未知键保留、密钥单独放 key.txt、退出时再写一次。"""

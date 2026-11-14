@@ -1,5 +1,3 @@
-# Modified for GalGameFramework 1.7.4 (2026-11-10): bounded exclusive temporary creation on denied Windows ACLs.
-# Modified for GalGameFramework 1.7.3 (2026-11-10): shared durable atomic writes.
 init -11 python:
     import os
     import uuid

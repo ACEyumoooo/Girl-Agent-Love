@@ -1,9 +1,3 @@
-# Modified for GalGameFramework 1.7.4 (2026-11-10): consistent CPS/fonts and avoid unchanged history writes.
-# Modified for GalGameFramework 1.7.3 (2026-11-10): unified progress storage and legacy seed without resurrection.
-# Modified for GalGameFramework 1.7.2 (2026-11-10): transactional choices, lineage restoration and single-consume prefetch.
-# Modified for GalGameFramework 1.7.2 (2026-11-09): development setting uses the restart gate.
-# Modified for GalGameFramework 1.7.1 (2026-11-09): JSON slot deletion/names and current voice replay.
-# Modified for GalGameFramework 1.7.0 (2026-11-09): use Image and guard BGM playback with if_changed.
 # Copyright 2026 ACE_yumoooo
 #
 # Licensed under the Apache License, Version 2.0 (the "License");

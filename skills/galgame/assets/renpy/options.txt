@@ -1,4 +1,4 @@
-# Framework 1.7.2 template defaults. Private credentials belong in key.txt.
+# Framework 1.0-b template defaults. Private credentials belong in key.txt.
 GALGAME_OPTIONS_VERSION=1
 
 # 一、作品与角色

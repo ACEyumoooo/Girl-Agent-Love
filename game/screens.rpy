@@ -1,4 +1,3 @@
-# Modified for GalGameFramework 1.7.0 (2026-11-09): remove duplicate template screens; retain custom implementations.
 ################################################################################
 ## Initialization
 ################################################################################

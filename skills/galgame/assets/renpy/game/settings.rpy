@@ -1,7 +1,3 @@
-# Modified for GalGameFramework 1.7.4 (2026-11-10): shared fonts and zero-CPS startup/preview.
-# Modified for GalGameFramework 1.7.2 (2026-11-09): native self-voicing UI and conflict-aware optional shortcut.
-# Modified for GalGameFramework 1.7.1 (2026-11-09): player scaling, AFM, mute, transitions and title music.
-# Modified for GalGameFramework 1.7.0 (2026-11-09): remove the unused ai_options modal from the input blocker.
 # 玩家设置页：画面、游戏、文本、音频、键盘。
 # 值仍然存在 options.txt 里，写盘沿用 options_store.rpy 的整份原子写。
 

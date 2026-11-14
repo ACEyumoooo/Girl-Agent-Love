@@ -1,6 +1,3 @@
-# Modified for GalGameFramework 1.7.4 (2026-11-10): shared CPS parsing preserves instant text.
-# Modified for GalGameFramework 1.7.2 (2026-11-09): explicit development opt-in and optional self-voicing key.
-# Modified for GalGameFramework 1.7.1 (2026-11-09): persist player presentation preferences.
 # 由 options.txt 的注释与键生成；game/options_schema.rpy
 init -10 python:
     OPTIONS_SCHEMA = [

@@ -1,8 +1,3 @@
-# Modified for GalGameFramework 1.7.4 (2026-11-10): use schema CPS defaults.
-# Modified for GalGameFramework 1.7.2 (2026-11-10): restore route effects, music and pending reactions.
-# Modified for GalGameFramework 1.7.2 (2026-11-09): descriptive speech labels for player controls.
-# Modified for GalGameFramework 1.7.1 (2026-11-09): editable JSON slots and scaled player text.
-# Modified for GalGameFramework 1.7.0 (2026-11-09): remove audited unused screens and transforms.
 # Copyright 2026 ACE_yumoooo
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
